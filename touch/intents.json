@@ -1,0 +1,117 @@
+{
+  "intents": [
+  {
+      "tag": "greeting",
+      "patterns": [
+        "Hi",
+        "Hiii",
+        "Hey",
+        "Heyyy",
+        "How are you",
+        "How are you doing",
+        "Is anyone there?",
+        "Hello",
+        "Good day"
+      ],
+      "responses": [
+        "Hey!",
+        "Hello, thanks for visiting",
+        "Hi there, what can I do for you?",
+        "Hi there, how can I help?"
+      ]
+    },
+    {
+      "tag": "goodbye",
+      "patterns": ["Bye", "See you later", "Goodbye"],
+      "responses": [
+        "See you later, thanks for visiting",
+        "Have a nice day",
+        "Bye! Come back again soon."
+      ]
+    },
+    {
+      "tag": "thanks",
+      "patterns": ["Thanks", "Thank you", "That's helpful", "Thank's a lot!"],
+      "responses": ["Happy to help!", "Any time!", "My pleasure", "You are most welcome", "No Problem"]
+    },
+    {
+      "tag": "price not found error",
+      "patterns": [
+        "Price not found",
+        "Some lines still in 'To Invoice'",
+        "price not displayed"
+      ],
+      "responses": [
+        "Reponse in CalculatedPrices from Comlims is empty, Please check with ComLims or Check if the request from IPW is valid"
+      ]
+    },
+    {
+      "tag": "av failure error",
+      "patterns": [
+        "AV Autovalidation",
+        "Auto Validation Failure Error"
+      ],
+      "responses": [
+        "AV failure could have happened because of any of the following reasons. \nPlease check the \"Av Failure Details\" tab for exact reason."
+      ]
+    },
+    {
+      "tag": "CopytoDMA Failed error",
+      "patterns": [
+        "Copy Original sent to DMA failed",
+        "OriginalToDmaSendingFailed",
+        "CopyToDmaSendingFailed"
+      ],
+      "responses": [
+        "Document already exists in DMA - Please Check in DMA, if not raise a ticket"
+      ]
+    },
+    {
+      "tag": "Analytical Report Missing error",
+      "patterns": [
+        "NoAnalyticalReportError",
+        "No Analytical Report Error"
+      ],
+      "responses": [
+        "Analytical Report Data Missing, Please check with SVR Team"
+      ]
+    },
+    {
+      "tag": "Ele Details Missing error",
+      "patterns": [
+        "ELE details not found",
+        "GTS Details not found",
+        "ELE details empty",
+        "GTS Details empty",
+        "GTS url empty",
+        "legal entity details not found"
+      ],
+      "responses": [
+        "You are getting ELE details not found either of below listed reasons. 1.GetEurofinsLegalEntityDetails didn't provided the correct response. 2.GetAllGtsForEle returned incorrect response. Please contact EGSS/EGMDR team"
+      ]
+    },
+    {
+      "tag": "AFGroup error",
+      "patterns": [
+        "Invoice Samples AF Groups Data not found",
+        "Invoice Samples data not Found",
+        "Additional Field data not found"
+      ],
+      "responses": [
+        "Please Check with SAM team is to why AdditionalFieldCode value is set to empty"
+      ]
+    },
+    {
+      "tag": "ipw default printer error",
+      "patterns": [
+		    "ipw default printer error",
+        "error ipw default print",
+        "ipw default printer issue",
+        "ipw default printing issue"
+      ],
+      "responses": [
+        "While configuring the default printer for a user, it must be ensured that only one printer is set to isDefault = true for a workstation in Usc Printing Application"
+      ]
+    }
+  ]
+}
