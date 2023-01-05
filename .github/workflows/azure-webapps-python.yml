@@ -41,7 +41,7 @@ jobs:
       - name: Set up Python version
         uses: actions/setup-python@v3.0.0
         with:
-          python-version: ${{ env.PYTHON_VERSION }}
+          python-version: '3.10'
           cache: 'pip'
 
       - name: Create and start virtual environment
@@ -51,6 +51,18 @@ jobs:
 
       - name: Install dependencies
         run: pip install -r requirements.txt
+
+	  # We add collectstatic to take care of our static files during the Actions run
+      # This is not added by default in the generated template, so we include this ourselves
+      - name: Collect static
+        run: python manage.py collectstatic
+		
+	  # We add makemigrations and migrate to run our model/database migrations
+      # This is not added by default in the generated template, so we include this ourselves
+      - name: Make migrations and run migrations
+        run: |
+          python manage.py makemigrations
+          python manage.py migrate
 
       # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
 
@@ -82,5 +94,6 @@ jobs:
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
         with:
-          app-name: ${{ env.AZURE_WEBAPP_NAME }}
-          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
+          app-name: 'EvaTheChatbot'
+          slot-name: 'Production'
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_6F27AF692E13453ABF36971D71C48693 }}
